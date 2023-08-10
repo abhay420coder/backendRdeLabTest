@@ -20,6 +20,15 @@ const PORT = process.env.PORT || constant.PORT;
 // use all the middleware here
 app.use(express.json()) // this is inbuilt middleware // this is a body parser that parse the date stream which we receives from the client on the server side
 // app.use("/api/contacts" , require("./routes/contactRoutes")) // use routes   // syntax app.use('url' , routerFunction)
+
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', `http://localhost:${PORT}`);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    next();
+});
+
 app.use("/api/movies" , require("./routes/movieRoutes")) // use routes   // syntax app.use('url' , routerFunction)
 app.use(errorHandler) // this is middlware where we chnage error to json // this is a custom middleware which accepts req , resp then in between which is going to transform in between into json
 
