@@ -14,6 +14,7 @@ const app = express()
 
 const constant = require('./common/_constant').constant
 const PORT = process.env.PORT || constant.PORT;
+const AngularPort = 4200;
 
 
 
@@ -22,7 +23,7 @@ app.use(express.json()) // this is inbuilt middleware // this is a body parser t
 // app.use("/api/contacts" , require("./routes/contactRoutes")) // use routes   // syntax app.use('url' , routerFunction)
 
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', `http://localhost:${PORT}`);
+    res.setHeader('Access-Control-Allow-Origin', `http://localhost:${AngularPort}`);
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);
