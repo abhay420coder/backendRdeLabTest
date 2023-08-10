@@ -23,7 +23,17 @@ app.use(express.json()) // this is inbuilt middleware // this is a body parser t
 // app.use("/api/contacts" , require("./routes/contactRoutes")) // use routes   // syntax app.use('url' , routerFunction)
 
 app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', `http://localhost:${AngularPort}`);
+    // console.log("req ports = " , req.address())
+    var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+    console.log("req ports = " , fullUrl)
+    console.log("req ports = " , req.get('host'))
+    const clientUrl = req.header('Referer');
+    console.log(clientUrl);
+    
+    // remove / from client url at last
+    const modifiedClientUrl = clientUrl.slice(0,(clientUrl.length-1))
+
+    res.setHeader('Access-Control-Allow-Origin',modifiedClientUrl );
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     res.setHeader('Access-Control-Allow-Credentials', true);

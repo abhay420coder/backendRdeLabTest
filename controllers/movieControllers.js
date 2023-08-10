@@ -63,7 +63,7 @@ const getFullMovies = asyncHandler(async(req , res) => {
     console.log("getFullMovies is working")
     const Movies = await moviesModel.find(); // get value from collection
     // res.status(200).json({"message":"getFullMovies  is working"});
-    console.log("Movies is working     " , Movies)
+    // console.log("Movies is working     " , Movies)
 
     res.status(200).json(Movies);
 })
