@@ -3,8 +3,10 @@ const dotenv = require('dotenv').config();
 const errorHandler = require('./middleware/errorHandler')
 const {connectDB} = require('./config/dbConnection/dbConnection')
 
+const CONNECTION_STRING_CONTACTS = 'mongodb+srv://freeWork:kroWeerf@personalproject.ohw754o.mongodb.net/myContactsBackend?retryWrites=true&w=majority'
+const CONNECTION_STRING_MOVIES = 'mongodb+srv://freeWork:kroWeerf@personalproject.ohw754o.mongodb.net/sample_mflix?retryWrites=true&w=majority'
 // connectDB(process.env.CONNECTION_STRING_CONTACTS); // database connected with database link
-connectDB(process.env.CONNECTION_STRING_MOVIES); // database connected with database link
+connectDB(CONNECTION_STRING_MOVIES); // database connected with database link
 // process.env.CONNECTION_STRING ='mongodb+srv://freeWork:kroWeerf@personalproject.ohw754o.mongodb.net/myContactsBackend?retryWrites=true&w=majority'
 
 
