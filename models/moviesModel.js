@@ -90,7 +90,7 @@ const moviesSchema = mongoose.Schema({
 // }
 
 )
-const moviesModel = mongoose.model("Movie" , moviesSchema) 
+const moviesModel = mongoose.model("myMovie" , moviesSchema) 
 // const modelName = mongoose.model("collectionname" , documentschema) 
 module.exports = {moviesModel}
 
